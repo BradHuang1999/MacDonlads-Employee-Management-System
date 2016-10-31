@@ -1,0 +1,2 @@
+# MacDonlads-Employee-Management-System
+12AP CompSci Project - McDonlads Burger Restaurant is finally getting a computer system! They have hired you to build their  employee scheduling system. During this co-op placement (they don’t want to pay you) you are  responsible for building a program that allows the restaurant owner to manage various types of  employees, assign them weekly schedules, and calculate their weekly pay check. (McDonlads pays  employees in cash at the end of every week)
