@@ -5,3 +5,12 @@ worker$James Gatz$45 Nowhere, Nowhere, ND$004$m$7.25
 manager$Alicia Florrick$903 Apartment, Chicago, IL$005$f$84000.0
 manager$Meredith Grey$430 Mer's, Seattle, WA$006$f$71200.0
 manager$Derek Shepherd$905 Dream House, Seattle, WA$007$m$72546.55
+manager$Charlie Lin$2323 Nowhere, Richmond Hill, ON$008$m$40000.0
+manager$Donald Dump$123 Rich Lane, New York, NY$009$m$100000.0
+worker$Drake Drake$123 Bottom Lane, Toronto, ON$010$m$5.0
+manager$Huge Jackedman$45 Banff Hill, Calgary, AB$011$m$40000.0
+manager$Bryan Renfolds$32 Main Street, Nowhere, ON$012$m$32500.0
+worker$Faylor Twits$99 Plagiarism Lane, Nashville, TN$013$f$2.5
+worker$Kiritoe Kazuutoo$62 Virtual Road, Los Angeles, CA$014$m$4.5
+manager$Billary Hinton$124 Rich Lane$015$f$75000.0
+manager$Elon Tusk$23 TelsaBroke Avenue, Bel Air, CA$016$m$23000.0
