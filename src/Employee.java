@@ -11,13 +11,13 @@ public abstract class Employee implements ReadWriteable{
 	private char gender;
 	private double salary;
 
-	protected int hourWorked;
+	private int hourWorked;
 
 	private File availabilityFile;
 	private int[][] availability;
 
-	protected File workHourFile;
-	protected int[][] workHours;
+	private File workHourFile;
+	private int[][] workHours;
 
 	public Employee(String name, String address, String employeeID, char gender, double salary) throws IOException{
 		this.name = name;
@@ -31,6 +31,8 @@ public abstract class Employee implements ReadWriteable{
 		} catch (IOException e){
 			this.setAvailability();
 		}
+		
+		this.hourWorked = 0;
 	}
 
 	public String getName(){
@@ -100,6 +102,30 @@ public abstract class Employee implements ReadWriteable{
 		this.writeHours();
 	}
 
+	public int getHourWorked() {
+		return hourWorked;
+	}
+
+	public void addHourWorked() {
+		this.hourWorked++;
+	}
+	
+	public File getWorkHourFile() {
+		return workHourFile;
+	}
+
+	public void setWorkHourFile(File workHourFile) {
+		this.workHourFile = workHourFile;
+	}
+
+	public int[][] getWorkHours() {
+		return workHours;
+	}
+
+	public void setWorkHours(int[][] workHours) {
+		this.workHours = workHours;
+	}
+	
 	public int edit() throws IOException{
 		Scanner keyIn = new Scanner(System.in);
 		int choice;
@@ -221,7 +247,7 @@ public abstract class Employee implements ReadWriteable{
 		for (int i = 0; i < 7; i++){
 			line = availIn.nextLine();
 			for (int j = 0; j < 24; j++){
-				this.availability[i][j] = Integer.valueOf(line.charAt(j));
+				this.availability[i][j] = Integer.parseInt(line.substring(0 , 1));
 			}
 		}
 

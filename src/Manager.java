@@ -10,8 +10,8 @@ public class Manager extends Employee {
 	@Override
 	public void writeWorkerHourFile() throws IOException{
 		String[] daysInWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
-		this.workHourFile = new File("workerHourFiles/" + this.getName() + " schedule.txt");
-		PrintWriter demandOut = new PrintWriter(this.workHourFile);
+		this.setWorkHourFile(new File("workerHourFiles/" + this.getName() + " schedule.txt"));
+		PrintWriter demandOut = new PrintWriter(this.getWorkHourFile());
 		int startHour, endHour;
 		String line;
 		boolean haveWork;
@@ -20,7 +20,7 @@ public class Manager extends Employee {
 
 		for (int i = 0; i < 7; i++){
 			haveWork = false;
-			for (int j: this.workHours[i]){
+			for (int j: this.getWorkHours()[i]){
 				if (j == 1){
 					haveWork = true;
 					break;
@@ -32,7 +32,7 @@ public class Manager extends Employee {
 				startHour = 0;
 				endHour = 0;
 				while (endHour < 24){
-					if (this.workHours[i][startHour] != this.workHours[i][endHour]){
+					if (this.getWorkHours()[i][startHour] != this.getWorkHours()[i][endHour]){
 						line = "";
 						if (startHour < 10){
 							line += "0";
@@ -41,16 +41,25 @@ public class Manager extends Employee {
 						if (endHour < 10){
 							line += "0";
 						}
-						line += endHour + ":00 " + this.workHours[i][startHour];
+						line += endHour + ":00 " + this.getWorkHours()[i][startHour];
 						demandOut.print("\t" + line);
 						startHour = endHour;
 					}
 					endHour++;
 				}
-				line = startHour + ":00-" + endHour + ":00 " + this.workHours[i][startHour];
+				line = startHour + ":00-" + endHour + ":00 " + this.getWorkHours()[i][startHour];
 				demandOut.println(line);
 			}
 		}
 		demandOut.close();
+	}
+	
+	@Override
+	public boolean isAvailable(int day, int hour){
+		if (this.getHourWorked() <= 40){
+			return this.getAvailability()[day][hour] == 1;
+		} else {
+			return false;
+		}
 	}
 }

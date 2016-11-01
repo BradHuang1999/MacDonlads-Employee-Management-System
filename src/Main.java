@@ -13,7 +13,7 @@ public class Main {
 		do {
 			System.out.println("\nChoose an option:\n - 1. Add Employee\n - 2. Edit or Remove Employee\n - 3. List all Employees\n - 4. Schedule Employees\n - 5. Display Employee Weekly Schedule/Pay\n - 6. Quit");
 
-			try {
+//			try {
 				choice = Integer.valueOf(keyIn.nextLine());
 
 				switch (choice){
@@ -38,10 +38,11 @@ public class Main {
 						System.out.print("Please enter an option between 1 and 6.\n");
 						break;
 				}
-			} catch (Exception e){
-				choice = -1;
-				System.out.print("Please enter an option between 1 and 6.\n");
-			}
+//			} 
+//			catch (Exception e){
+//				choice = -1;
+//				System.out.print("Please enter an option between 1 and 6.\n");
+//			}
 
 		} while(choice != 6);
 	}
