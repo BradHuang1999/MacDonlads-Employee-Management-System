@@ -8,14 +8,18 @@ import java.util.Scanner;
 public class Mac implements ReadWriteable{
 
 	private int[][] employeeDemand;
-	private File demandFile = new File("demand.txt");
-	private File employeeFile = new File("employees.txt");
+	private String demandFileName, employeeFileName;
+	private File demandFile;
+	private File employeeFile;
 
 	public ArrayList<Employee> employees = new ArrayList<Employee>();
 	private ArrayList<Employee>[][] weeklyAvailable;
 	private Employee[][][] weeklySchedule = new Employee[7][24][];
 
-	public Mac() throws IOException{
+	public Mac(String demandFileName, String employeeFileName) throws IOException{
+		this.demandFileName = demandFileName;
+		this.employeeFileName = employeeFileName;
+
 		try {
 			this.readEmployeeFile();
 			System.out.println("Employee file loaded.");
@@ -116,18 +120,20 @@ public class Mac implements ReadWriteable{
 	public void schedule(){
 		Employee employee;
 		String line;
-		String[] daysInWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+		String[] daysInWeek = {"Monday   ", "Tuesday  ", "Wednesday", "Thursday ", "Friday   ", "Saturday ", "Sunday   "};
 		this.weeklyAvailable = new ArrayList[7][24];
 		System.out.print("\nAvailability Information");
 		
 		for (int i = 0; i < 7; i++){
 			for (int j = 0; j < 24; j++){
 				this.weeklyAvailable[i][j] = new ArrayList<Employee>();
+
 				for (int k = 0; k < this.employees.size(); k++){
 					employee = this.employees.get(k);
+
 					if (employee.isAvailable(i, j)){
 						this.weeklyAvailable[i][j].add(employee);
-					}					
+					}
 				}
 
 				if (this.weeklyAvailable[i][j] != null){
@@ -140,16 +146,18 @@ public class Mac implements ReadWriteable{
 						line += "0";
 					}
 					line += (j + 1) + ":00 ";
-					System.out.print(line + "\t");
-					
-//					System.out.print(this.weeklyAvailable[i][j]);
+					System.out.print(line + "  \t");
 
 					for (int n = 0; n < this.weeklyAvailable[i][j].size(); n++){
-						System.out.print(this.weeklyAvailable[i][j].get(n).getName() + " ");
+						System.out.print(this.weeklyAvailable[i][j].get(n).getName());
+						if (n != this.weeklyAvailable[i][j].size() - 1){
+							System.out.print(", ");
+						}
 					}
 				}
 			}
 		}
+		System.out.println();
 
 	}
 
@@ -196,6 +204,7 @@ public class Mac implements ReadWriteable{
 	}
 
 	private void readEmployeeFile() throws IOException{
+		employeeFile = new File(employeeFileName);
 		Scanner employeeIn = new Scanner (this.employeeFile);
 		String line, type, name, address, employeeID;
 		char gender;
@@ -249,6 +258,7 @@ public class Mac implements ReadWriteable{
 
 	@Override
 	public void readHours() throws IOException{
+		demandFile = new File(demandFileName);
 		Scanner demandIn = new Scanner (this.demandFile);
 		String line;
 		this.employeeDemand = new int[7][24];

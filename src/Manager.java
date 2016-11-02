@@ -3,6 +3,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class Manager extends Employee {
+
+	private static final int HOUR_CAP = 40;
+
 	public Manager(String name, String address, String employeeID, char gender, double salary) throws IOException{
 		super(name, address, employeeID, gender, salary);
 	}
@@ -56,7 +59,7 @@ public class Manager extends Employee {
 	
 	@Override
 	public boolean isAvailable(int day, int hour){
-		if (this.getHourWorked() <= 40){
+		if (this.getHourWorked() <= HOUR_CAP){
 			return this.getAvailability()[day][hour] == 1;
 		} else {
 			return false;

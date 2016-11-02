@@ -1,0 +1,4 @@
+manager$Huge Jackedman$45 Banff Hill, Calgary, AB$011$m$40000.0
+manager$Bryan Renfolds$32 Main Street, Nowhere, ON$012$m$32500.0
+worker$Faylor Twits$99 Plagiarism Lane, Nashville, TN$013$f$2.5
+worker$Kiritoe Kazuutoo$62 Virtual Road, Los Angeles, CA$014$m$4.5

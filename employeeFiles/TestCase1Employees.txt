@@ -1,0 +1,2 @@
+manager$Donald Dump$123 Rich Lane, New York, NY$009$m$100000.0
+worker$Drake Drake$123 Bottom Lane, Toronto, ON$010$m$5.0

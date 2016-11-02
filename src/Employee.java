@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.rmi.NotBoundException;
 import java.util.Scanner;
 
 public abstract class Employee implements ReadWriteable{
@@ -31,7 +32,7 @@ public abstract class Employee implements ReadWriteable{
 		} catch (IOException e){
 			this.setAvailability();
 		}
-		
+
 		this.hourWorked = 0;
 	}
 
@@ -102,30 +103,30 @@ public abstract class Employee implements ReadWriteable{
 		this.writeHours();
 	}
 
-	public int getHourWorked() {
+	public int getHourWorked(){
 		return hourWorked;
 	}
 
-	public void addHourWorked() {
+	public void addHourWorked(){
 		this.hourWorked++;
 	}
-	
-	public File getWorkHourFile() {
+
+	public File getWorkHourFile(){
 		return workHourFile;
 	}
 
-	public void setWorkHourFile(File workHourFile) {
+	public void setWorkHourFile(File workHourFile){
 		this.workHourFile = workHourFile;
 	}
 
-	public int[][] getWorkHours() {
+	public int[][] getWorkHours(){
 		return workHours;
 	}
 
-	public void setWorkHours(int[][] workHours) {
+	public void setWorkHours(int[][] workHours){
 		this.workHours = workHours;
 	}
-	
+
 	public int edit() throws IOException{
 		Scanner keyIn = new Scanner(System.in);
 		int choice;
@@ -138,75 +139,75 @@ public abstract class Employee implements ReadWriteable{
 
 			try {
 				choice = Integer.valueOf(keyIn.nextLine());
+
+
+				switch (choice){
+					case 1:
+						System.out.print("Enter New Address: ");
+						this.address = keyIn.nextLine();
+						return 0;
+					case 2:
+						System.out.print("Enter New Employee ID: ");
+						this.employeeID = keyIn.nextLine();
+						return 0;
+					case 3:
+						System.out.print("Enter New Type: ");
+						String type = keyIn.nextLine().toLowerCase();
+						if ((type.equals("manager") && this instanceof Worker)){
+							boolean check;
+							do {
+								System.out.print("Enter New Salary per Year: ");
+								try {
+									this.salary = Double.valueOf(keyIn.nextLine());
+									check = true;
+								} catch (Exception e){
+									System.out.println("Please enter a ligitamate amount.");
+									check = false;
+								}
+							} while (!check);
+							return 50;
+						} else if (type.equals("worker") && this instanceof Manager){
+							boolean check;
+							do {
+								System.out.print("Enter New Wage per hour: ");
+								try {
+									this.salary = Double.valueOf(keyIn.nextLine());
+									check = true;
+								} catch (Exception e){
+									System.out.println("Please enter a ligitamate amount.");
+									check = false;
+								}
+							} while (!check);
+							return 51;
+						} else {
+							return 0;
+						}
+					case 4:
+						boolean check;
+						do {
+							System.out.print("Enter New Salary: ");
+							try {
+								this.salary = Double.valueOf(keyIn.nextLine());
+								check = true;
+							} catch (Exception e){
+								System.out.println("Please enter a ligitamate amount.");
+								check = false;
+							}
+						} while (!check);
+						return 0;
+					case 5:
+						this.setAvailability();
+						return 0;
+					case 6:
+						return -1;
+					default:
+						throw new NotBoundException();
+				}
 			} catch (Exception e){
 				choice = -1;
 				System.out.print("Please enter an option between 1 and 7.\n");
 			}
-
-			switch (choice){
-				case 1:
-					System.out.print("Enter New Address: ");
-					this.address = keyIn.nextLine();
-					return 0;
-				case 2:
-					System.out.print("Enter New Employee ID: ");
-					this.employeeID = keyIn.nextLine();
-					return 0;
-				case 3:
-					System.out.print("Enter New Type: ");
-					String type = keyIn.nextLine().toLowerCase();
-					if ((type.equals("manager") && this instanceof Worker)){
-						boolean check;
-						do {
-							System.out.print("Enter New Salary per Year: ");
-							try {
-								this.salary = Double.valueOf(keyIn.nextLine());
-								check = true;
-							} catch (Exception e){
-								System.out.println("Please enter a ligitamate amount.");
-								check = false;
-							}
-						} while (!check);
-						return 50;
-					}  else if (type.equals("worker") && this instanceof Manager){
-						boolean check;
-						do {
-							System.out.print("Enter New Wage per hour: ");
-							try {
-								this.salary = Double.valueOf(keyIn.nextLine());
-								check = true;
-							} catch (Exception e){
-								System.out.println("Please enter a ligitamate amount.");
-								check = false;
-							}
-						} while (!check);
-						return 51;
-					} else {
-						return 0;
-					}
-				case 4:
-					boolean check;
-					do {
-						System.out.print("Enter New Salary: ");
-						try {
-							this.salary = Double.valueOf(keyIn.nextLine());
-							check = true;
-						} catch (Exception e){
-							System.out.println("Please enter a ligitamate amount.");
-							check = false;
-						}
-					} while (!check);
-					return 0;
-				case 5:
-					this.setAvailability();
-					return 0;
-				case 6:
-					return -1;
-				default:
-					System.out.print("Please enter an option between 1 and 7.\n");
-					break;
-			}
-		} while(choice < 1 && choice > 7);
+		} while (choice < 1 && choice > 7);
 
 		return 0;
 	}
@@ -247,7 +248,7 @@ public abstract class Employee implements ReadWriteable{
 		for (int i = 0; i < 7; i++){
 			line = availIn.nextLine();
 			for (int j = 0; j < 24; j++){
-				this.availability[i][j] = Integer.parseInt(line.substring(0 , 1));
+				this.availability[i][j] = Integer.parseInt(String.valueOf(line.charAt(j)));
 			}
 		}
 

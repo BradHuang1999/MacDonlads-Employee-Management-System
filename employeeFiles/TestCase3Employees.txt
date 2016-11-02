@@ -1,0 +1,6 @@
+manager$Billary Hinton$124 Rich Lane$015$f$75000.0
+manager$Elon Tusk$23 TelsaBroke Avenue, Bel Air, CA$016$m$23000.0
+worker$Ask CatchM$797 Nowhere, Nowhere, NO$017$m$3.5
+worker$Brussel Neaters$42 Brampton Road, Missisauga, ON$018$m$7.0
+worker$Obam Kodama$1 Whitehouse Lane, DC$019$m$10.0
+worker$Scary Potter$3 Hogwarts Cres, Hogwarts, UK$020$m$3.5
