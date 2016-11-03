@@ -53,7 +53,7 @@ public class Worker extends Employee{
 			}
 		}
 
-		demandOut.println("Hours Worked: " + this.getHourWorked() + "\t\tWage for the Week: " + ((double)this.getHourWorked() * this.getSalary()));
+		demandOut.println("Hours Worked: " + this.getHoursWorked() + "\t\tWage for the Week: " + ((double)this.getHoursWorked() * this.getSalary()));
 
 		demandOut.close();
 	}

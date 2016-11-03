@@ -12,7 +12,8 @@ public abstract class Employee implements ReadWriteable{
 	private char gender;
 	private double salary;
 
-	private int hourWorked;
+	private int hoursWorked;
+    private int consecHourWorked;
 
 	private File availabilityFile;
 	private int[][] availability;
@@ -33,7 +34,8 @@ public abstract class Employee implements ReadWriteable{
 			this.setAvailability();
 		}
 
-		this.hourWorked = 0;
+		this.calcConsecutiveHours();
+		this.hoursWorked = 0;
 	}
 
 	public String getName(){
@@ -60,7 +62,7 @@ public abstract class Employee implements ReadWriteable{
 		return availability;
 	}
 
-	public void setAvailability() throws IOException{
+	private void setAvailability() throws IOException{
 		String[] daysInWeek = {"M", "T", "W", "R", "F", "S", "U"};
 		Scanner keyIn = new Scanner(System.in);
 		String line;
@@ -103,12 +105,31 @@ public abstract class Employee implements ReadWriteable{
 		this.writeHours();
 	}
 
-	public int getHourWorked(){
-		return hourWorked;
+	private void calcConsecutiveHours(){
+        int pos, consecHr;
+        for (int i = 0; i < 7; i++){
+            for (int j = 0; j < 24; j++){
+                if (this.availability[i][j] != 0){
+                    pos = j;
+                    do {
+                        pos++;
+                    } while ((pos != 24) && (this.availability[i][pos] != 0));
+                    consecHr = pos - j;
+                    for (int k = j; k < pos; k++){
+                        this.availability[i][k] = consecHr;
+                    }
+                    j = pos;
+                }
+            }
+        }
+    }
+
+	public int getHoursWorked(){
+		return hoursWorked;
 	}
 
-	public void addHourWorked(){
-		this.hourWorked++;
+	public void addHoursWorked(){
+		this.hoursWorked++;
 	}
 
 	public File getWorkHourFile(){
@@ -127,7 +148,19 @@ public abstract class Employee implements ReadWriteable{
 		this.workHours = workHours;
 	}
 
-	public int edit() throws IOException{
+    public int getConsecHourWorked(){
+        return consecHourWorked;
+    }
+
+    public void zeroConsecHourWorked(){
+        this.consecHourWorked = 0;
+    }
+
+    public void addConsecHourWorked(){
+        this.consecHourWorked++;
+    }
+
+    public int edit() throws IOException{
 		Scanner keyIn = new Scanner(System.in);
 		int choice;
 
@@ -233,7 +266,7 @@ public abstract class Employee implements ReadWriteable{
 	}
 
 	public boolean isAvailable(int day, int hour){
-		return this.availability[day][hour] == 1;
+		return this.availability[day][hour] != 0;
 	}
 
 	public abstract void writeWorkerHourFile() throws IOException;
@@ -260,11 +293,15 @@ public abstract class Employee implements ReadWriteable{
 		this.availabilityFile = new File("availabilityFiles/" + this.getName() + " availibility.txt");
 		PrintWriter availOut = new PrintWriter(this.availabilityFile);
 
-		int[][] rawData = this.getAvailability();
+		int[][] rawData = this.availability;
 
 		for (int[] rawRow : rawData){
 			for (int i : rawRow){
-				availOut.print(i);
+				if (i != 0){
+					availOut.print(1);
+				} else {
+					availOut.print(0);
+				}
 			}
 			availOut.println();
 		}
