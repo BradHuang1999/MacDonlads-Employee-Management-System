@@ -59,7 +59,7 @@ public class Manager extends Employee {
 	
 	@Override
 	public boolean isAvailable(int day, int hour){
-		if (this.getHoursWorked() <= HOUR_CAP){
+		if (this.getHoursWorked() < HOUR_CAP){
 			return this.getAvailability()[day][hour] != 0;
 		} else {
 			return false;

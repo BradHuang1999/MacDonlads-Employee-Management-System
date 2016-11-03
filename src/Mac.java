@@ -127,26 +127,71 @@ public class Mac implements ReadWriteable{
 
 		Employee employee;
 		String line;
+		boolean zero;
 		String[] daysInWeek = {"Monday   ", "Tuesday  ", "Wednesday", "Thursday ", "Friday   ", "Saturday ", "Sunday   "};
 		this.weeklyAvailable = new ArrayList[7][24];
 
-		for (int j = 0; j < 24; j++){
-			for (int i = 0; i < 7; i++){
+		for (int i = 0; i < 7; i++){
+			for (int j = 0; j < 24; j++){
 				this.weeklyAvailable[i][j] = new ArrayList<Employee>();
 				for (int k = 0; k < this.employees.size(); k++){
 					employee = this.employees.get(k);
 					if (employee.isAvailable(i, j)){
 						this.weeklyAvailable[i][j].add(employee);
 					}
-					this.sortEmployeeByConsecHours(i, j);
+					zero = j == 0;
+					if (!zero){
+						zero = true;
+						for (int m = 0; m < this.employeeDemand[i][j - 1]; m++){
+							if (this.weeklySchedule[i][j - 1][m].equals(employee)){
+								zero = false;
+								break;
+							}
+						}
+					}
+					if (zero){
+						employee.zeroConsecHourWorked();
+					}
 				}
+				this.sortEmployeeByConsecHours(i, j);
+				this.weeklySchedule[i][j] = new Employee[this.employeeDemand[i][j]];
+				for (int n = 0; n < this.employeeDemand[i][j]; n++){
+					employee = this.weeklyAvailable[i][j].get(n);
+					this.weeklySchedule[i][j][n] = employee;
+					employee.addHoursWorked();
 
+					employee.addConsecHourWorked();
+				}
 			}
 		}
 
+//		for (int i = 0; i < 7; i++){
+//			for (int j = 0; j < 24; j++){
+//				if (this.weeklyAvailable[i][j] != null){
+//					line = "\n" + daysInWeek[i] + " ";
+//					if (j < 10){
+//						line += "0";
+//					}
+//					line += j + ":00-";
+//					if (j < 9){
+//						line += "0";
+//					}
+//					line += (j + 1) + ":00 ";
+//					System.out.print(line + "  \t");
+//
+//					for (int n = 0; n < this.weeklyAvailable[i][j].size(); n++){
+//						System.out.print(this.weeklyAvailable[i][j].get(n).getName());
+//						if (n != this.weeklyAvailable[i][j].size() - 1){
+//							System.out.print(", ");
+//						}
+//					}
+//				}
+//			}
+//		}
+		
 		for (int i = 0; i < 7; i++){
 			for (int j = 0; j < 24; j++){
-				if (this.weeklyAvailable[i][j] != null){
+				if (this.employeeDemand[i][j] != 0){
 					line = "\n" + daysInWeek[i] + " ";
 					if (j < 10){
 						line += "0";
@@ -158,9 +203,9 @@ public class Mac implements ReadWriteable{
 					line += (j + 1) + ":00 ";
 					System.out.print(line + "  \t");
 
-					for (int n = 0; n < this.weeklyAvailable[i][j].size(); n++){
-						System.out.print(this.weeklyAvailable[i][j].get(n).getName());
-						if (n != this.weeklyAvailable[i][j].size() - 1){
+					for (int n = 0; n < this.employeeDemand[i][j]; n++){
+						System.out.print(this.weeklySchedule[i][j][n].getName());
+						if (n != this.employeeDemand[i][j] - 1){
 							System.out.print(", ");
 						}
 					}
@@ -193,6 +238,15 @@ public class Mac implements ReadWriteable{
 		ArrayList<Employee> employeesTemp = this.weeklyAvailable[day][hour];
 		ArrayList<Manager> managers = new ArrayList<Manager>();
 		ArrayList<Worker> workers = new ArrayList<Worker>();
+		
+//		for (int i = 0; i < employeesTemp.size() - 1; i++){
+//			for (int j = 0; j < employeesTemp.size() - i - 1; j++){
+//				if (employeesTemp.get(j).getSalary() > employeesTemp.get(j + 1).getSalary()){
+//					employeesTemp.add(j, this.employees.get(j + 1));
+//					employeesTemp.remove(j + 2);
+//				}
+//			}
+//		}
 
 		while(!employeesTemp.isEmpty()){
 			if (employeesTemp.get(0) instanceof Manager){
