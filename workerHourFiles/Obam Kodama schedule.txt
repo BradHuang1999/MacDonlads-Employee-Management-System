@@ -1,4 +1,6 @@
 ******Obam Kodama's Schedule******
+
 Worker 	Employee ID: 019
 
-Hours Worked: 0		Wage for the Week: 0.0
+Saturday     15:00-16:00 1
+Hours Worked: 1		Wage for the Week: 10.0

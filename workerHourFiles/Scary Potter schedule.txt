@@ -1,4 +1,6 @@
 ******Scary Potter's Schedule******
+
 Worker 	Employee ID: 020
 
-Hours Worked: 0		Wage for the Week: 0.0
+Friday       16:00-19:00 3
+Hours Worked: 3		Wage for the Week: 10.5

@@ -70,15 +70,16 @@ public class Main {
 			} catch (NotBoundException e){
 				choice = -1;
 				System.out.println("Please enter an option between 1 and 6.");
-			} catch (Exception e){
-				if (e instanceof NullPointerException){
-					System.out.println("\n******NullPointerException\n");
-				} else if (e instanceof ArrayIndexOutOfBoundsException){
-					System.out.println("\n******ArrayIndexOutOfBoundsException\n");
-				} else {
-					System.out.println("\n******Exception\n");
-				}
 			}
+//			catch (Exception e){
+//				if (e instanceof NullPointerException){
+//					System.out.println("\n******NullPointerException\n");
+//				} else if (e instanceof ArrayIndexOutOfBoundsException){
+//					System.out.println("\n******ArrayIndexOutOfBoundsException\n");
+//				} else {
+//					System.out.println("\n******Exception\n");
+//				}
+//			}
 
 		} while(choice != 6);
 	}

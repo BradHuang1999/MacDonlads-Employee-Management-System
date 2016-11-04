@@ -1,9 +1,10 @@
 ******Elon Tusk's Schedule******
+
 Manager 	Employee ID: 016
 
-Monday       20:00-23:00 3
-Wednesday    19:00-21:00 2
-Thursday     19:00-21:00 2
-Friday       16:00-21:00 5
-Saturday     16:00-23:00 7
-Sunday       22:00-24:00 2
+Monday       12:00-18:00 6
+Tuesday      11:00-17:00 6
+Wednesday    09:00-11:00 2   14:00-19:00 5
+Thursday     12:00-17:00 5
+Friday       09:00-16:00 7
+Saturday     10:00-16:00 6   18:00-19:00 1

@@ -158,14 +158,22 @@ public class Mac implements ReadWriteable{
 				this.sortEmployeeByConsecHours(i, j);
 				this.weeklySchedule[i][j] = new Employee[this.employeeDemand[i][j]];
 				for (int n = 0; n < this.employeeDemand[i][j]; n++){
-					employee = this.weeklyAvailable[i][j].get(n);
-					this.weeklySchedule[i][j][n] = employee;
-					employee.setWorkHour(i, j);
-					employee.addHoursWorked();
-					employee.addConsecHourWorked();
+					try{
+						employee = this.weeklyAvailable[i][j].get(n);
+						this.weeklySchedule[i][j][n] = employee;
+						employee.setWorkHour(i, j);
+						employee.addHoursWorked();
+						employee.addConsecHourWorked();
 //					employee.checkConsecHourWorked();
+					} catch (IndexOutOfBoundsException e){
+						break;
+					}
 				}
-
+			}
+		}
+		
+		for (int i = 0; i < 7; i++){
+			for (int j = 0; j < 24; j++){
 				if (this.employeeDemand[i][j] != 0){
 					line = "\n" + daysInWeek[i] + " ";
 					if (j < 10){
@@ -179,11 +187,17 @@ public class Mac implements ReadWriteable{
 					System.out.print(line + "  \t");
 
 					for (int n = 0; n < this.employeeDemand[i][j]; n++){
-						System.out.print(this.weeklySchedule[i][j][n].getName());	// + this.weeklySchedule[i][j][n].getConsecHourWorked());
-						if (n != this.employeeDemand[i][j] - 1){
-							System.out.print(", ");
+						try{
+							System.out.print(this.weeklySchedule[i][j][n].getName());
+							if ((n != this.employeeDemand[i][j] - 1) && (n != this.weeklyAvailable[i][j].size() - 1)){
+								System.out.print(", ");
+							}
+						} catch (NullPointerException e){
+							this.needMoreEmployees(i, j, (this.employeeDemand[i][j] - n));
+							break;
 						}
 					}
+				}
 
 //				if (this.employeeDemand[i][j] != 0){
 //					line = "\n" + daysInWeek[i] + " ";
@@ -204,7 +218,6 @@ public class Mac implements ReadWriteable{
 //						}
 //					}
 //				}
-				}
 			}
 		}
 
@@ -233,20 +246,24 @@ public class Mac implements ReadWriteable{
 		this.writeHours();
 		System.exit(0);
 	}
+	
+	private void needMoreEmployees(int day, int hour, int moreEmployeesNeeded){
+		System.out.print("\n******Still need " + moreEmployeesNeeded + " employees. ");
+	}
 
 	private void sortEmployeeByConsecHours(int day, int hour){
 		ArrayList<Employee> employeesTemp = this.weeklyAvailable[day][hour];
 		ArrayList<Manager> managers = new ArrayList<Manager>();
 		ArrayList<Worker> workers = new ArrayList<Worker>();
 		
-//		for (int i = 0; i < employeesTemp.size() - 1; i++){
-//			for (int j = 0; j < employeesTemp.size() - i - 1; j++){
-//				if (employeesTemp.get(j).getSalary() > employeesTemp.get(j + 1).getSalary()){
-//					employeesTemp.add(j, this.employees.get(j + 1));
-//					employeesTemp.remove(j + 2);
-//				}
-//			}
-//		}
+		for (int i = 0; i < employeesTemp.size() - 1; i++){
+			for (int j = 0; j < employeesTemp.size() - i - 1; j++){
+				if (employeesTemp.get(j).getSalary() > employeesTemp.get(j + 1).getSalary()){
+					employeesTemp.add(j, employeesTemp.get(j + 1));
+					employeesTemp.remove(j + 2);
+				}
+			}
+		}
 
 		while(!employeesTemp.isEmpty()){
 			if (employeesTemp.get(0) instanceof Manager){

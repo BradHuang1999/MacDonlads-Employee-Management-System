@@ -1,4 +1,12 @@
 ******Brussel Neaters's Schedule******
+
 Worker 	Employee ID: 018
 
-Hours Worked: 0		Wage for the Week: 0.0
+Monday       17:00-19:00 2
+Tuesday      16:00-19:00 3
+Wednesday    09:00-10:00 1   17:00-18:00 1
+Thursday     13:00-19:00 6
+Friday       15:00-19:00 4
+Saturday     12:00-18:00 6
+Sunday       09:00-12:00 3
+Hours Worked: 26		Wage for the Week: 182.0
