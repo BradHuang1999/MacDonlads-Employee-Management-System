@@ -12,18 +12,18 @@ public class Manager extends Employee {
 
 	@Override
 	public void writeWorkerHourFile() throws IOException{
-		String[] daysInWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+		String[] daysInWeek = {"Monday   ", "Tuesday  ", "Wednesday", "Thursday ", "Friday   ", "Saturday ", "Sunday   "};
 		this.setWorkHourFile(new File("workerHourFiles/" + this.getName() + " schedule.txt"));
 		PrintWriter demandOut = new PrintWriter(this.getWorkHourFile());
-		int startHour, endHour;
+		int startHour, endHour, workHour;
 		String line;
 		boolean haveWork;
 
-		demandOut.println("******" + this.getName() + "'s Schedule******\nEmployee ID: " + this.getEmployeeID() + "\n");
+		demandOut.println("******" + this.getName() + "'s Schedule******\nManager \tEmployee ID: " + this.getEmployeeID() + "\n");
 
 		for (int i = 0; i < 7; i++){
 			haveWork = false;
-			for (int j: this.getWorkHours()[i]){
+			for (int j : this.getWorkHours()[i]){
 				if (j == 1){
 					haveWork = true;
 					break;
@@ -31,7 +31,7 @@ public class Manager extends Employee {
 			}
 
 			if (haveWork){
-				demandOut.print(daysInWeek[i] + "\t");
+				demandOut.print(daysInWeek[i] + " ");
 				startHour = 0;
 				endHour = 0;
 				while (endHour < 24){
@@ -44,14 +44,26 @@ public class Manager extends Employee {
 						if (endHour < 10){
 							line += "0";
 						}
-						line += endHour + ":00 " + this.getWorkHours()[i][startHour];
-						demandOut.print("\t" + line);
+						workHour = endHour - startHour;
 						startHour = endHour;
+						line += endHour + ":00 " + workHour;
+						if (this.getWorkHours()[i][endHour - 1] != 0){
+							demandOut.print("   " + line);
+						}
 					}
 					endHour++;
 				}
-				line = startHour + ":00-" + endHour + ":00 " + this.getWorkHours()[i][startHour];
-				demandOut.println(line);
+				workHour = endHour - startHour;
+				line = "";
+				if (startHour < 10){
+					line += "0";
+				}
+				line += startHour + ":00-";
+				line += endHour + ":00 " + workHour;
+				if (this.getWorkHours()[i][23] != 0){
+					demandOut.print("   " + line);
+				}
+				demandOut.println();
 			}
 		}
 		demandOut.close();

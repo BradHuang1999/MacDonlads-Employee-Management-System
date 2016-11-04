@@ -1,0 +1,5 @@
+******Gill Bates's Schedule******
+Worker 	Employee ID: 001
+
+Saturday     22:00-23:00 1
+Hours Worked: 1		Wage for the Week: 9.05

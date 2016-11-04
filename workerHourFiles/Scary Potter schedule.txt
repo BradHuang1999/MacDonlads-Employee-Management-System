@@ -1,0 +1,4 @@
+******Scary Potter's Schedule******
+Worker 	Employee ID: 020
+
+Hours Worked: 0		Wage for the Week: 0.0

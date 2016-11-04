@@ -1,0 +1,5 @@
+******Meredith Grey's Schedule******
+Manager 	Employee ID: 006
+
+Wednesday    20:00-21:00 1
+Saturday     16:00-22:00 6

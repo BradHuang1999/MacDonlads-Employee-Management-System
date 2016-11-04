@@ -1,0 +1,7 @@
+******Charlie Lin's Schedule******
+Manager 	Employee ID: 008
+
+Thursday     20:00-21:00 1
+Friday       19:00-21:00 2
+Saturday     20:00-21:00 1
+Sunday       09:00-20:00 11   22:00-24:00 2

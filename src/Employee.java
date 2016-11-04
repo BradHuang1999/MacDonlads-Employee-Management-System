@@ -19,7 +19,9 @@ public abstract class Employee implements ReadWriteable{
 	private int[][] availability;
 
 	private File workHourFile;
-	private int[][] workHours;
+	private int[][] workHours = new int[7][24];
+
+//	private final int CONSEC_HOUR_CAP = 10;
 
 	public Employee(String name, String address, String employeeID, char gender, double salary) throws IOException{
 		this.name = name;
@@ -144,10 +146,6 @@ public abstract class Employee implements ReadWriteable{
 		return workHours;
 	}
 
-	public void setWorkHours(int[][] workHours){
-		this.workHours = workHours;
-	}
-
     public int getConsecHourWorked(){
         return consecHourWorked;
     }
@@ -160,7 +158,17 @@ public abstract class Employee implements ReadWriteable{
         this.consecHourWorked++;
     }
 
-    public int edit() throws IOException{
+//    public void checkConsecHourWorked(){
+//		if (this.consecHourWorked >= this.CONSEC_HOUR_CAP){
+//			this.consecHourWorked = -1;
+//		}
+//	}
+
+	public void setWorkHour(int day, int hour){
+		this.workHours[day][hour] = 1;
+	}
+
+	public int edit() throws IOException{
 		Scanner keyIn = new Scanner(System.in);
 		int choice;
 

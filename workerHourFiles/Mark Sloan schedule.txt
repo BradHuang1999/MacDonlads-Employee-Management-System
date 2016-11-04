@@ -1,0 +1,6 @@
+******Mark Sloan's Schedule******
+Manager 	Employee ID: 021
+
+Wednesday    20:00-21:00 1
+Saturday     19:00-22:00 3
+Sunday       16:00-22:00 6

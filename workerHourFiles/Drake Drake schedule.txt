@@ -1,0 +1,5 @@
+******Drake Drake's Schedule******
+Worker 	Employee ID: 010
+
+Sunday       22:00-24:00 2
+Hours Worked: 2		Wage for the Week: 10.0
