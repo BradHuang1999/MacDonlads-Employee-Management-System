@@ -289,7 +289,15 @@ public abstract class Employee implements ReadWriteable{
 		String line;
 		boolean haveWork;
 
-		workOut.println("******" + this.name + "'s Schedule******\nWorker \tEmployee ID: " + this.employeeID + "\n");		// print schedule
+		workOut.println("******" + this.name + "'s Schedule******");
+		
+		if (this instanceof Worker){
+			workOut.print("Worker");
+		} else {
+			workOut.print("Manager");
+		}
+		
+		workOut.println(" \tEmployee ID: " + this.employeeID + "\n");		// print schedule
 
 		for (int i = 0; i < 7; i++){
 			haveWork = false;

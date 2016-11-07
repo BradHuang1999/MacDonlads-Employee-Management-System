@@ -1,6 +1,6 @@
 ******Ask CatchM's Schedule******
 Worker 	Employee ID: 017
 
-Saturday     23:00-24:00 1 hr
-Sunday       22:00-24:00 2 hrs
-Hours Worked: 3		Wage for the Week: 10.5
+Wednesday    17:00-18:00 1 hr
+
+Hours Worked: 1		Wage for the Week: 3.5

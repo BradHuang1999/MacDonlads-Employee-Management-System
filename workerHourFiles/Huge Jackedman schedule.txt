@@ -1,10 +1,6 @@
 ******Huge Jackedman's Schedule******
-Worker 	Employee ID: 011
+Manager 	Employee ID: 011
 
-Monday       13:00-14:00 1 hr
-Tuesday      16:00-21:00 5 hrs
-Wednesday    16:00-21:00 5 hrs
-Thursday     16:00-21:00 5 hrs
-Friday       16:00-21:00 5 hrs
-Saturday     09:00-20:00 11 hrs   23:00-24:00 1 hr
-Sunday       07:00-10:00 3 hrs   22:00-24:00 2 hrs
+Friday       09:00-19:00 10 hrs
+Saturday     09:00-19:00 10 hrs
+Sunday       09:00-19:00 10 hrs

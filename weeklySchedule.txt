@@ -1,39 +1,8 @@
 ******Weekly Schedule******
-Monday      09:00-10:00 Elon Tusk
-Monday      10:00-13:00 Bryan Renfolds, Elon Tusk
-Monday      13:00-14:00 Bryan Renfolds, Elon Tusk, Huge Jackedman
-Monday      14:00-16:00 Elon Tusk
-Monday      16:00-19:00 Billary Hinton, Elon Tusk
-Monday      19:00-20:00 Billary Hinton, Donald Dump, Elon Tusk, Mark Sloan
-Monday      20:00-22:00 Billary Hinton, Charlie Lin, Donald Dump, Mark Sloan
-Monday      22:00-23:00 Billary Hinton, Donald Dump, Mark Sloan, Meredith Grey
-Tuesday     09:00-10:00 Elon Tusk
-Tuesday     10:00-14:00 Bryan Renfolds, Elon Tusk
-Tuesday     14:00-16:00 Elon Tusk
-Tuesday     16:00-19:00 Elon Tusk, Huge Jackedman
-Tuesday     19:00-20:00 Billary Hinton, Elon Tusk, Huge Jackedman
-Tuesday     20:00-21:00 Billary Hinton, Donald Dump, Huge Jackedman
-Wednesday   09:00-16:00 Bryan Renfolds, Elon Tusk
-Wednesday   16:00-19:00 Billary Hinton, Bryan Renfolds, Elon Tusk, Huge Jackedman
-Wednesday   19:00-20:00 Billary Hinton, Bryan Renfolds, Donald Dump, Elon Tusk, Huge Jackedman
-Wednesday   20:00-21:00 Billary Hinton, Donald Dump, Huge Jackedman, Mark Sloan, Meredith Grey
-Thursday    09:00-16:00 Bryan Renfolds, Elon Tusk
-Thursday    16:00-19:00 Alicia Florrick, Billary Hinton, Bryan Renfolds, Huge Jackedman
-Thursday    19:00-20:00 Alicia Florrick, Billary Hinton, Bryan Renfolds, Donald Dump, Huge Jackedman
-Thursday    20:00-21:00 Alicia Florrick, Billary Hinton, Charlie Lin, Donald Dump, Huge Jackedman
-Friday      09:00-16:00 Bryan Renfolds
-Friday      16:00-19:00 Bryan Renfolds, Huge Jackedman
-Friday      19:00-21:00 Alicia Florrick, Charlie Lin, Derek Shepherd, Donald Dump, Huge Jackedman
-Saturday    09:00-16:00 Billary Hinton, Huge Jackedman
-Saturday    16:00-19:00 Billary Hinton, Donald Dump, Huge Jackedman, Meredith Grey
-Saturday    19:00-20:00 Billary Hinton, Donald Dump, Huge Jackedman, Mark Sloan, Meredith Grey
-Saturday    20:00-21:00 Alicia Florrick, Charlie Lin, Donald Dump, Mark Sloan, Meredith Grey
-Saturday    21:00-22:00 Alicia Florrick, Donald Dump, Faylor Twits, Mark Sloan, Meredith Grey
-Saturday    22:00-23:00 Alicia Florrick, Donald Dump, Faylor Twits, Kiritoe Kazuutoo, Scary Potter
-Saturday    23:00-24:00 Alicia Florrick, Ask CatchM, Billary Hinton, Brussel Neaters, Charlie Brown, Donald Dump, Drake Drake, Faylor Twits, Gill Bates, Huge Jackedman, Kiritoe Kazuutoo, Lucille Ball, Obam Kodama, Scary Potter (Still need 2 employees)
-Sunday      07:00-09:00 Charlie Lin, Huge Jackedman
-Sunday      09:00-10:00 Billary Hinton, Charlie Lin, Huge Jackedman
-Sunday      10:00-16:00 Charlie Lin
-Sunday      16:00-18:00 Charlie Lin, Derek Shepherd, Donald Dump, Mark Sloan
-Sunday      18:00-22:00 Alicia Florrick, Derek Shepherd, Donald Dump, Mark Sloan
-Sunday      22:00-24:00 Ask CatchM, Billary Hinton, Brussel Neaters, Charlie Brown, Charlie Lin, Donald Dump, Drake Drake, Faylor Twits, Huge Jackedman, Kiritoe Kazuutoo, Lucille Ball, Obam Kodama, Scary Potter (Still need 5 employees)
+Monday      09:00-19:00 Bryan Renfolds
+Tuesday     09:00-19:00 Bryan Renfolds
+Wednesday   09:00-19:00 Bryan Renfolds
+Thursday    09:00-19:00 Bryan Renfolds
+Friday      09:00-19:00 Faylor Twits, Huge Jackedman
+Saturday    09:00-19:00 Faylor Twits, Huge Jackedman
+Sunday      09:00-19:00 Faylor Twits, Huge Jackedman

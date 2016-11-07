@@ -1,7 +1,8 @@
 ******Elon Tusk's Schedule******
 Worker 	Employee ID: 016
 
-Monday       09:00-20:00 11 hrs
-Tuesday      09:00-20:00 11 hrs
-Wednesday    09:00-20:00 11 hrs
-Thursday     09:00-16:00 7 hrs
+Monday       09:00-16:00 7 hrs
+Tuesday      09:00-18:00 9 hrs
+Wednesday    09:00-19:00 10 hrs
+Thursday     09:00-17:00 8 hrs
+Friday       09:00-15:00 6 hrs
