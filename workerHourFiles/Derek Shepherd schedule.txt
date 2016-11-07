@@ -1,5 +1,5 @@
 ******Derek Shepherd's Schedule******
-Manager 	Employee ID: 007
+Worker 	Employee ID: 007
 
-Friday       19:00-21:00 2
-Sunday       20:00-22:00 2
+Friday       19:00-21:00 2 hrs
+Sunday       16:00-22:00 6 hrs

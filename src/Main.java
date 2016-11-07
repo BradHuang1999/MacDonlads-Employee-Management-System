@@ -1,3 +1,4 @@
+
 import java.io.IOException;
 import java.rmi.NotBoundException;
 import java.util.Scanner;
@@ -5,13 +6,13 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) throws IOException{
-		Mac mac = null;
+		Mac mac = null;		// set up a mac
 		Scanner keyIn = new Scanner(System.in);
 		int choice;
 
 		System.out.println("MacDonlads Employee Management System");
 
-		do {
+		do {		// load file
 			System.out.println("\nChoose files to upload:\n - 1. Test Case 1 Demand & Employees\n - 2. Test Case 2 Demand & Employees\n - 3. Test Case 3 Demand & Employees\n - 4. Brad's Demand & Employees");
 
 			try {
@@ -40,46 +41,37 @@ public class Main {
 
 		} while(choice == -1);
 
-		do {
-			System.out.println("\nChoose an option:\n - 1. Add Employee\n - 2. Edit or Remove Employee\n - 3. List all Employees\n - 4. Schedule Employees\n - 5. Display Employee Weekly Schedule/Pay\n - 6. Quit");
+		do {		// pick options
+			System.out.println("\nChoose an option:\n - 1. Add Employee\n - 2. Edit or Remove Employee\n - 3. List all Employees\n - 4. Schedule Employees\n - 5. Generate Employee Weekly Schedule/Pay\n - 6. Quit");
 
 			try {
 				choice = Integer.valueOf(keyIn.nextLine());
 
 				switch (choice){
 					case 1:
-						mac.addEmployee();
+						mac.addEmployee();		// add employee
 						break;
 					case 2:
-						mac.editEmployee();
+						mac.editEmployee();		// edit employee
 						break;
 					case 3:
-						mac.listEmployees();
+						mac.listEmployees();	// list employees
 						break;
 					case 4:
-						mac.schedule();
+						mac.schedule();			// run scheduling algorithm
 						break;
 					case 5:
-						mac.displayWeeklySchedule();
+						mac.displayWeeklySchedule();		// generate weekly schedule
 						break;
 					case 6:
-						mac.quit();
+						mac.quit();				// write files
 					default:
-						throw new NotBoundException();
+						throw new NotBoundException();		// throws exception
 				}
 			} catch (NotBoundException e){
 				choice = -1;
 				System.out.println("Please enter an option between 1 and 6.");
 			}
-//			catch (Exception e){
-//				if (e instanceof NullPointerException){
-//					System.out.println("\n******NullPointerException\n");
-//				} else if (e instanceof ArrayIndexOutOfBoundsException){
-//					System.out.println("\n******ArrayIndexOutOfBoundsException\n");
-//				} else {
-//					System.out.println("\n******Exception\n");
-//				}
-//			}
 
 		} while(choice != 6);
 	}

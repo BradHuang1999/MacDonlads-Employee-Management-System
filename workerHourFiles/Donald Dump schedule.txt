@@ -1,7 +1,10 @@
 ******Donald Dump's Schedule******
-Manager 	Employee ID: 009
+Worker 	Employee ID: 009
 
-Monday       09:00-20:00 11
-Tuesday      09:00-20:00 11
-Wednesday    09:00-20:00 11
-Thursday     09:00-16:00 7
+Monday       19:00-23:00 4 hrs
+Tuesday      20:00-21:00 1 hr
+Wednesday    19:00-21:00 2 hrs
+Thursday     19:00-21:00 2 hrs
+Friday       19:00-21:00 2 hrs
+Saturday     16:00-24:00 8 hrs
+Sunday       16:00-24:00 8 hrs
