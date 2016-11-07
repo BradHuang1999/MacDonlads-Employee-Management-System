@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * @author Brad Huang
+ * @date Nov.7, 2016
+ * class for Mac object
+ */
 public class Mac implements ReadWriteable{
 
 	private int[][] employeeDemand;        // declare variables
@@ -19,6 +24,12 @@ public class Mac implements ReadWriteable{
 
 	private final int MID_HOUR = 5;        // declare a mid-hour. twice the number is the hour cap for an employee
 
+	/**
+	 * constructor
+	 * @param demandFileName
+	 * @param employeeFileName
+	 * @throws IOException
+	 */
 	public Mac(String demandFileName, String employeeFileName) throws IOException{        // constructor
 		this.demandFileName = demandFileName;
 		this.employeeFileName = employeeFileName;
@@ -47,6 +58,10 @@ public class Mac implements ReadWriteable{
 		}
 	}
 
+	/**
+	 * add an employee
+	 * @throws IOException
+	 */
 	public void addEmployee() throws IOException{
 		System.out.println("\n******Add an Employee******\nEnter employee profile: ");
 
@@ -87,6 +102,10 @@ public class Mac implements ReadWriteable{
 		}
 	}
 
+	/**
+	 * edit employees
+	 * @throws IOException
+	 */
 	public void editEmployee() throws IOException{
 		System.out.print("\n******Edit Employee******\nEnter Employee Name or ID: ");
 
@@ -116,6 +135,9 @@ public class Mac implements ReadWriteable{
 		}
 	}
 
+	/**
+	 * list the employees
+	 */
 	public void listEmployees(){
 		System.out.println("\n******Employee Information******");
 
@@ -125,6 +147,10 @@ public class Mac implements ReadWriteable{
 		}
 	}
 
+	/**
+	 * scheduling algorithm
+	 * @throws IOException when file not found
+	 */
 	public void schedule() throws IOException{
 		System.out.print("\n******Scheduling Information******");
 
@@ -248,6 +274,9 @@ public class Mac implements ReadWriteable{
 		weeklyScheduleOut.close();
 	}
 
+	/**
+	 * @throws IOException when file not found
+	 */
 	public void displayWeeklySchedule() throws IOException{		// display schedules
 		System.out.println("\n******Generate Employee Weekly Schedules******");
 
@@ -264,12 +293,20 @@ public class Mac implements ReadWriteable{
 		}
 	}
 
+	/**
+	 * @throws IOException when file not found
+	 */
 	public void quit() throws IOException{
 		this.writeEmployeeFile();        // write files
 		this.writeHours();
 		System.exit(0);        // quit
 	}
 
+	/**
+	 * @param day the day element in the weekly schedule 2D array
+	 * @param hour the hour element in the weekly schedule 2D array
+	 * @param moreEmployeesNeeded
+	 */
 	private void needMoreEmployees(int day, int hour, int moreEmployeesNeeded){        // give recommendation if need more employee
 		Employee employee;
 		ArrayList<Employee> recommendList = new ArrayList<Employee>();
@@ -308,7 +345,12 @@ public class Mac implements ReadWriteable{
 		}
 	}
 
-	private void sortEmployeeByName(int day, int hour){        // sort employees in the weekly schedule by name
+	/**
+	 * sort employees in the weekly schedule by name
+	 * @param day the day element in the weekly schedule 2D array
+	 * @param hour the hour element in the weekly schedule 2D array
+	 */
+	private void sortEmployeeByName(int day, int hour){
 		Employee employeeBuffer;
 		for (int i = 0; i < this.weeklySchedule[day][hour].length - 1; i++){
 			for (int j = 0; j < this.weeklySchedule[day][hour].length - i - 1; j++){
@@ -324,7 +366,12 @@ public class Mac implements ReadWriteable{
 		}
 	}
 
-	private void sortEmployeeByConsecHours(int day, int hour){        // sort employee in the weekly available by consecutive hours
+	/**
+	 * sort employee in the weekly available by consecutive hours
+	 * @param day the day element in the weekly schedule 2D array
+	 * @param hour the hour element in the weekly schedule 2D array
+	 */
+	private void sortEmployeeByConsecHours(int day, int hour){
 		ArrayList<Employee> employeesTemp = this.weeklyAvailable[day][hour];
 		ArrayList<Manager> managers = new ArrayList<Manager>();
 		ArrayList<Worker> workers = new ArrayList<Worker>();
@@ -383,7 +430,10 @@ public class Mac implements ReadWriteable{
 		}
 	}
 
-	private void sortEmployeeBySalary(){        // sort employee in the employees arraylist by salary
+	/**
+	 * sorts employee in the employees arraylist by salary
+	 */
+	private void sortEmployeeBySalary(){
 		int size = this.employees.size();
 		for (int i = 0; i < size - 1; i++){
 			for (int j = 0; j < size - i - 1; j++){
@@ -395,7 +445,10 @@ public class Mac implements ReadWriteable{
 		}
 	}
 
-	private void sortEmployeeByID(){            // sort employee in the employees arraylist by ID
+	/**
+	 * sorts employee in the employees arraylist by ID
+	 */
+	private void sortEmployeeByID(){
 		int size = this.employees.size();
 		for (int i = 0; i < size - 1; i++){
 			for (int j = 0; j < size - i - 1; j++){
@@ -407,7 +460,11 @@ public class Mac implements ReadWriteable{
 		}
 	}
 
-	private void readEmployeeFile() throws IOException{        // read the employee file, add employees in the arraylist
+	/**
+	 * read the employee file, add employees in the arraylist
+	 * @throws IOException when file not found
+	 */
+	private void readEmployeeFile() throws IOException{
 		employeeFile = new File(employeeFileName);
 		Scanner employeeIn = new Scanner(this.employeeFile);
 		String line, type, name, address, employeeID;
@@ -441,7 +498,11 @@ public class Mac implements ReadWriteable{
 		}
 	}
 
-	private void writeEmployeeFile() throws IOException{        // write employees in the file
+	/**
+	 * write employees in the file
+	 * @throws IOException when file not found
+	 */
+	private void writeEmployeeFile() throws IOException{
 		PrintWriter employeeOut = new PrintWriter(this.employeeFile);
 		String line;
 		Employee employee;
@@ -460,8 +521,12 @@ public class Mac implements ReadWriteable{
 		employeeOut.close();
 	}
 
+	/* 
+	 * read the employee demand
+	 * @see ReadWriteable#readHours()
+	 */
 	@Override
-	public void readHours() throws IOException{        // read the employee demand
+	public void readHours() throws IOException{
 		demandFile = new File(demandFileName);
 		Scanner demandIn = new Scanner(this.demandFile);
 		String line;
@@ -483,8 +548,12 @@ public class Mac implements ReadWriteable{
 		}
 	}
 
+	/* 
+	 * write the demand file in a refined format
+	 * @see ReadWriteable#writeHours()
+	 */
 	@Override
-	public void writeHours() throws IOException{        // write the demand file in a refined format
+	public void writeHours() throws IOException{        // 
 		String[] daysInWeek = {"M", "T", "W", "R", "F", "S", "U"};
 		PrintWriter demandOut = new PrintWriter(this.demandFile);
 		int startHour, endHour;

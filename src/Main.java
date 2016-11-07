@@ -3,8 +3,18 @@ import java.io.IOException;
 import java.rmi.NotBoundException;
 import java.util.Scanner;
 
+/**
+ * @author Brad Huang
+ * @date Nov. 7, 2016
+ * Employee Management System for MacDonlads
+ */
 public class Main {
 
+	/**
+	 * main program
+	 * @param args
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws IOException{
 		Mac mac = null;		// set up a mac
 		Scanner keyIn = new Scanner(System.in);
