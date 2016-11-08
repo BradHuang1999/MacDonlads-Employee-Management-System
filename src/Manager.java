@@ -1,7 +1,11 @@
-import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 
+/**
+ * Manager.java
+ * @author Brad Huang
+ * Nov.7, 2016
+ * class for manager employees
+ */
 public class Manager extends Employee {
 
 	private static final int HOUR_CAP = 40;
@@ -19,7 +23,7 @@ public class Manager extends Employee {
 	}
 
 	
-	/* (non-Javadoc)
+	/**
 	 * @see Employee#isAvailable(int, int)
 	 */
 	@Override

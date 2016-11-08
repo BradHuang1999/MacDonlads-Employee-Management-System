@@ -1,5 +1,5 @@
 ******Alicia Florrick's Schedule******
-Worker 	Employee ID: 005
+Manager 	Employee ID: 005
 
 Thursday     16:00-21:00 5 hrs
 Friday       19:00-21:00 2 hrs

@@ -1,5 +1,7 @@
 ******Kiritoe Kazuutoo's Schedule******
 Worker 	Employee ID: 014
 
+Saturday     22:00-24:00 2 hrs
+Sunday       22:00-24:00 2 hrs
 
-Hours Worked: 0		Wage for the Week: 0.0
+Hours Worked: 4		Wage for the Week: 18.0

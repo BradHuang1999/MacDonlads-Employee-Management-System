@@ -7,8 +7,9 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
+ * Mac.java
  * @author Brad Huang
- * @date Nov.7, 2016
+ * Nov.7, 2016
  * class for Mac object
  */
 public class Mac implements ReadWriteable{
@@ -275,6 +276,7 @@ public class Mac implements ReadWriteable{
 	}
 
 	/**
+	 * generate employee weekly schedules
 	 * @throws IOException when file not found
 	 */
 	public void displayWeeklySchedule() throws IOException{		// display schedules
@@ -521,7 +523,7 @@ public class Mac implements ReadWriteable{
 		employeeOut.close();
 	}
 
-	/* 
+	/**
 	 * read the employee demand
 	 * @see ReadWriteable#readHours()
 	 */
@@ -548,7 +550,7 @@ public class Mac implements ReadWriteable{
 		}
 	}
 
-	/* 
+	/**
 	 * write the demand file in a refined format
 	 * @see ReadWriteable#writeHours()
 	 */

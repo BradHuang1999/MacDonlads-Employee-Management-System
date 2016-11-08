@@ -2,4 +2,5 @@
 Worker 	Employee ID: 001
 
 Saturday     23:00-24:00 1 hr
+
 Hours Worked: 1		Wage for the Week: 9.05

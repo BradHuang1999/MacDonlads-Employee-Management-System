@@ -1,5 +1,5 @@
 ******Billary Hinton's Schedule******
-Worker 	Employee ID: 015
+Manager 	Employee ID: 015
 
 Monday       12:00-19:00 7 hrs
 Tuesday      11:00-19:00 8 hrs

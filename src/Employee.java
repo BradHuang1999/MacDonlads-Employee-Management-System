@@ -5,8 +5,10 @@ import java.rmi.NotBoundException;
 import java.util.Scanner;
 
 /**
+ * Employee.java
  * @author Brad Huang
- * @date Nov.7, 2016
+ * Nov.7, 2016
+ * class for employees
  */
 public abstract class Employee implements ReadWriteable{
 
@@ -455,7 +457,8 @@ public abstract class Employee implements ReadWriteable{
 		workOut.close();
 	}
 
-	/* (non-Javadoc)
+	/**
+	 * read the availability file for employees
 	 * @see ReadWriteable#readHours()
 	 */
 	@Override
@@ -475,11 +478,12 @@ public abstract class Employee implements ReadWriteable{
 		availIn.close();
 	}
 
-	/* (non-Javadoc)
+	/**
+	 * write the availability file for employees
 	 * @see ReadWriteable#writeHours()
 	 */
 	@Override
-	public void writeHours() throws IOException{	// write the availabilitye hours
+	public void writeHours() throws IOException{
 		this.availabilityFile = new File("availabilityFiles/" + this.getName() + " availibility.txt");
 		PrintWriter availOut = new PrintWriter(this.availabilityFile);
 

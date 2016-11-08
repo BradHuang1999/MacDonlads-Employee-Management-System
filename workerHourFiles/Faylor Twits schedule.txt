@@ -1,8 +1,7 @@
 ******Faylor Twits's Schedule******
 Worker 	Employee ID: 013
 
-Friday       09:00-19:00 10 hrs
-Saturday     09:00-19:00 10 hrs
-Sunday       09:00-19:00 10 hrs
+Saturday     21:00-24:00 3 hrs
+Sunday       22:00-24:00 2 hrs
 
-Hours Worked: 30		Wage for the Week: 75.0
+Hours Worked: 5		Wage for the Week: 12.5

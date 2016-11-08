@@ -1,7 +1,8 @@
 ******Bryan Renfolds's Schedule******
 Manager 	Employee ID: 012
 
-Monday       09:00-19:00 10 hrs
-Tuesday      09:00-19:00 10 hrs
-Wednesday    09:00-19:00 10 hrs
-Thursday     09:00-19:00 10 hrs
+Monday       10:00-14:00 4 hrs
+Tuesday      10:00-14:00 4 hrs
+Wednesday    09:00-20:00 11 hrs
+Thursday     09:00-20:00 11 hrs
+Friday       09:00-19:00 10 hrs

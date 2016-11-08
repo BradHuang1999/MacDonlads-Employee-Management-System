@@ -1,8 +1,13 @@
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * Worker.java
+ * @author Brad Huang
+ * Nov.7, 2016
+ * class for worker employees
+ */
 public class Worker extends Employee{
 
 	/**
@@ -17,7 +22,7 @@ public class Worker extends Employee{
 		super(name, address, employeeID, gender, salary);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see Employee#writeWorkerHourFile()
 	 */
 	@Override

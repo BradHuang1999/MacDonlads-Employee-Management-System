@@ -1,5 +1,5 @@
 ******Meredith Grey's Schedule******
-Worker 	Employee ID: 006
+Manager 	Employee ID: 006
 
 Monday       22:00-23:00 1 hr
 Wednesday    20:00-21:00 1 hr

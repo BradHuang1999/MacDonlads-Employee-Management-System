@@ -4,8 +4,9 @@ import java.rmi.NotBoundException;
 import java.util.Scanner;
 
 /**
+ * Main.java
  * @author Brad Huang
- * @date Nov. 7, 2016
+ * Nov. 7, 2016
  * Employee Management System for MacDonlads
  */
 public class Main {
